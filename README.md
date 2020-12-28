@@ -1,17 +1,17 @@
 # Chain Reaction Framework
 
-Readme url: [Readme](https://gitlab.com/tzuyangw/chain-reaction-framework/blob/master/README.md)
-The spec document: [Demand](https://gitlab.com/tzuyangw/chain-reaction-framework/blob/master/Demand.pdf)
+Readme url: [Readme](https://github.com/Hhhho/Chain-Reaction)
+The spec document: [Demand](https://github.com/Hhhho/Chain-Reaction/blob/main/Project3.docx)
 
 # A very simple framework of chain reaction using C++ language. 
 
 Apply the knowledge learned form the course of data structure and implement a competitive algorithm for the Critical Mass game.
 
 ## Compile Command:
-* $g++ chain_reaction.cpp board.cpp rules.cpp player.cpp algorithm_A.cpp algorithm_TA.cpp
+* $g++ chain_reaction.cpp board.cpp rules.cpp player.cpp algorithm_ST.cpp algorithm_TA.cpp
 
-## Execution: 
-* Execute the output file(Mac: a.out, Windows: a.exe)
+## Execution Environment: 
+* OS: Fresh Ubuntu 16.04.
 
 ## Some simple actions that can make your development easier 
 
@@ -29,17 +29,13 @@ Apply the knowledge learned form the course of data structure and implement a co
 
 ![Player action](/images/001.png)
 
-### Algorithm_A
+### Algorithm_ST
 
-*  The algorithm_A.cpp file is where you need to impliment your algorithm.
-*  All the constrains and support funcitons is commented in the file, please check the [algorithm_A.cpp](/source/algorithm_A.cpp) for more information.
+*  The algorithm_ST.cpp file is where you need to impliment your algorithm.
+*  All the constrains and support funcitons is commented in the file, please check the [algorithm_ST.cpp](/source/algorithm_ST.cpp) for more information.
 
 ### Submit
 
-*  All you need to do is complete the algorithm_A.cpp with correct return format.
-*  Any other modifies "will not" be compiled in TA's computer.(except algorithm_A.cpp)
+*  All you need to do is complete the algorithm_ST.cpp with correct return format.
+*  Any other modifies "will not" be compiled in TA's computer.(except algorithm_ST.cpp)
 *  But we do not restrict you from modifying any part of the framwork. You can do whatever you want to speed up your developement.
-
-### Something you might want to know
-
-*  system("pause")

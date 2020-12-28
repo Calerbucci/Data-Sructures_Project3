@@ -28,23 +28,7 @@ using namespace std;
 
 void algorithm_A(Board board, Player player, int index[]){
 
-    // cout << board.get_capacity(0, 0) << endl;
-    // cout << board.get_orbs_num(0, 0) << endl;
-    // cout << board.get_cell_color(0, 0) << endl;
-    // board.print_current_board(0, 0, 0);
-
-    //////////// Random Algorithm ////////////
-    // Here is the random algorithm for your reference, you can delete or comment it.
-    srand(time(NULL));
-    int row, col;
-    int color = player.get_color();
+    //////your algorithm design///////////
+   
     
-    while(1){
-        row = rand() % 5;
-        col = rand() % 6;
-        if(board.get_cell_color(row, col) == color || board.get_cell_color(row, col) == 'w') break;
-    }
-
-    index[0] = row;
-    index[1] = col;
-}s
+}

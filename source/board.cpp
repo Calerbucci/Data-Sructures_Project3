@@ -12,7 +12,7 @@ using namespace std;
     #endif
 
 Cell::Cell(){
-    orbs_num = 0, capacity = 4, color='w', explode = false;
+    orbs_num = 0, capacity = 8, color='w', explode = false;
 }
 
 int Cell::get_capacity(){
@@ -51,14 +51,14 @@ Board::Board(){
 
     ////// Initialize the borad with correct capacity //////
     // The corners of the board
-    cells[0][0].set_capacity(2), cells[0][5].set_capacity(2),
-    cells[4][0].set_capacity(2), cells[4][5].set_capacity(2);
+    cells[0][0].set_capacity(3), cells[0][5].set_capacity(3),
+    cells[4][0].set_capacity(3), cells[4][5].set_capacity(3);
 
     // The edges of the board
-    cells[0][1].set_capacity(3), cells[0][2].set_capacity(3), cells[0][3].set_capacity(3), cells[0][4].set_capacity(3),
-    cells[1][0].set_capacity(3), cells[2][0].set_capacity(3), cells[3][0].set_capacity(3),
-    cells[1][5].set_capacity(3), cells[2][5].set_capacity(3), cells[3][5].set_capacity(3),
-    cells[4][1].set_capacity(3), cells[4][2].set_capacity(3), cells[4][3].set_capacity(3), cells[4][4].set_capacity(3);
+    cells[0][1].set_capacity(5), cells[0][2].set_capacity(5), cells[0][3].set_capacity(5), cells[0][4].set_capacity(5),
+    cells[1][0].set_capacity(5), cells[2][0].set_capacity(5), cells[3][0].set_capacity(5),
+    cells[1][5].set_capacity(5), cells[2][5].set_capacity(5), cells[3][5].set_capacity(5),
+    cells[4][1].set_capacity(5), cells[4][2].set_capacity(5), cells[4][3].set_capacity(5), cells[4][4].set_capacity(5);
 
 }
 
@@ -71,7 +71,7 @@ void Board::print_current_board(int i, int j, int round){
     system(CLEAR);
     cout << "Round: " << round << endl;
     cout << "Place orb on (" << i << ", " << j << ")" << endl;
-    cout << "=========================================" << endl;
+    cout << "=============================================================" << endl;
     for(int i = 0; i < ROW; i++){
         for(int j = 0; j < COL; j++){
 
@@ -90,24 +90,35 @@ void Board::print_current_board(int i, int j, int round){
             orb_num = cells[i][j].get_orbs_num();
             switch(orb_num){
                 case 0:
-                    cout << "|    | ";
+                    cout << "|       | ";
                     break;
                 case 1:
-                    cout << "|" << symbol << "   | ";
+                    cout << "|" << symbol << "      | ";
                     break;
                 case 2: 
-                    cout << "|" << symbol << symbol << "  | ";
+                    cout << "|" << symbol << symbol << "     | ";
                     break;
                 case 3:
-                    cout << "|" << symbol << symbol << symbol << " | ";
+                    cout << "|" << symbol << symbol << symbol << "    | ";
+                    break;
+                case 4:
+                    cout << "|" << symbol << symbol << symbol << symbol << "   | ";
+                    break;
+                case 5:
+                    cout << "|" << symbol << symbol << symbol << symbol << symbol << "  | ";
+                    break;
+                case 6:
+                    cout << "|" << symbol << symbol << symbol << symbol << symbol << symbol << " | ";
                     break;
                 default:
-                    cout << "|" << symbol << symbol << symbol << symbol << "| ";
+                    cout << "|" << symbol << symbol << symbol << symbol << symbol << symbol << symbol << "| ";
+                    break;
+
             }
         }
         cout << endl;
     }
-    cout << "=========================================" << endl << endl;
+    cout << "=============================================================" << endl << endl;
 }
 
 bool Board::place_orb(int i, int j, Player * player){
@@ -174,6 +185,18 @@ void Board::cell_explode(int i, int j){
 
     if( j - 1 >= 0){
         add_orb(i, j-1, color);
+    }
+    if( i + 1 < ROW && j - 1 >= 0){
+        add_orb(i+1, j-1, color);
+    }
+    if( i - 1 >= 0 && j - 1 >= 0){
+        add_orb(i-1, j-1, color);
+    }
+    if( i + 1 < ROW && j + 1 < COL){
+        add_orb(i+1, j+1, color);
+    }
+    if( i - 1 >= 0 && j + 1 < COL){
+        add_orb(i-1, j+1, color);
     }
 }
 
